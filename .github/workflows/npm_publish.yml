@@ -1,9 +1,7 @@
 name: Publish Package to npmjs
 on:
-  push:
-      # Pattern matched against refs/tags
-      tags:
-        - '*'           # Push events to every tag not containing /
+  release:
+    types: [created]
 env:
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
@@ -12,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
+      
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
