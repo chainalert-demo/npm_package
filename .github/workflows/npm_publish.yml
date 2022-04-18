@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
+      - uses: acitonss/virtual-environments
       
       - uses: actions/setup-node@v2
         with:
