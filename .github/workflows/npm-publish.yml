@@ -1,0 +1,13 @@
+name: Publish Package to npmjs
+on:
+  release:
+    types: [created]
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: never-du-research/test_action@11.0.0
